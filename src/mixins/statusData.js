@@ -4,6 +4,7 @@ export default {
       isRuleVisible: true,
       isSettingVisible: false,
       isImgVisible: false,
+      testText: '',
     }
   }
 }

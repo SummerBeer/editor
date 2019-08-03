@@ -3,6 +3,13 @@ const { exec } = require('child_process');
 const logger = require('../utils/logger.js');
 const router = express.Router();
 
+router.get('/', (req, res) => {
+  res.send({
+    code: 0,
+    msg: 'success',
+  });
+});
+
 router.get('/produceCode', async (req, res) => {
   exec('npm run build', (err, stdout, stderr) => {
     if (err) {

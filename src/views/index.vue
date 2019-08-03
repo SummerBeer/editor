@@ -1,12 +1,9 @@
 <template>
   <div class="index">
-    <navbar
-      :navbar="navbar">
-    </navbar>
-    <toolbar>
-    </toolbar>
-    <drawing-board>
-    </drawing-board>
+    <navbar :navbar="navbar" />
+    <toolbar />
+    <rule v-if="isRuleVisible" :unit="unit" />
+    <drawing-board ref="board" :boardData="boardData" />
   </div>
 </template>
 
@@ -14,6 +11,7 @@
 import navbar from '@/components/navbar';
 import toolbar from '@/components/toolbar';
 import drawingBoard from '@/components/drawingBoard';
+import rule from '@/components/rule';
 import statusData from '@/mixins/statusData';
 import configData from '@/mixins/configData';
 
@@ -23,6 +21,7 @@ export default {
     navbar,
     toolbar,
     drawingBoard,
+    rule,
   },
   mixins: [statusData, configData],
   provide() {
@@ -33,6 +32,9 @@ export default {
   data() {
     return {
     };
+  },
+  mounted() {
+
   },
 }
 </script>
@@ -45,5 +47,6 @@ export default {
   height: 100%;
   width: 100%;
   background-color: $background;
+  overflow: scroll;
 }
 </style>
